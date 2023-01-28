@@ -30,6 +30,15 @@ img {
 	width: 80px;
 }
 
+@keyframes background-pan {
+	from {
+			background-position: 0% center;
+	}
+	to {
+			background-position: -300% center;
+	}
+}
+
 header {
 	display: flex;
 	align-items: center;
@@ -37,6 +46,11 @@ header {
 	justify-content: center;
 	gap: 5vw;
 	margin: 3vh auto;
+	animation: background-pan 8s linear infinite;
+	background-image: linear-gradient(69deg, var(--library-green), var(--library-light-pink), var(--library-pink), var(--library-green));
+	background-size: 300%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .library-wrapper {
@@ -69,10 +83,10 @@ header {
 .add-book {
 	background: rgb(148,233,176);
 	background: linear-gradient(22deg, rgba(148,233,176,1) 0%, rgba(245,175,199,1) 100%);
-	position: absolute;
-	bottom: 2vh;
-	right: 10vw;
-	padding: .7rem 1.25rem;
+	position: fixed;
+	bottom: 3vh;
+	right: 5vw;
+	padding: 1rem 1.5rem;
 	border-radius: 0.6rem;
 	color: var(--library-black);
 	font-size: 2rem;
@@ -81,6 +95,14 @@ header {
 
 @media screen and (max-width: 1000px) {
 	.library-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: min-content;
+	}
+}
+
+@media screen and (max-height: 500px) {
+	.library-wrapper {
+		width: 60vw;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: min-content;
 	}
