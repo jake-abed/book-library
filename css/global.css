@@ -1,0 +1,49 @@
+:root {
+	--library-black: #19181A;
+	--library-green: #479761;
+	--library-pink: #A16E83;
+	--library-yellow: #CEBC81;
+	--library-white: ghostwhite;
+	font-size: 12px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	color: var(--library-white);
+	background-color: var(--library-black);
+}
+
+h1 {
+	color: var(--library-green);
+	text-align: center;
+	font-size: 3rem;
+}
+
+img {
+	width: 80px;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	width: 80vw;
+	justify-content: center;
+	gap: 5vw;
+	margin: 3vh auto;
+}
+
+.library-wrapper {
+	width: min(1000px, 90vw);
+	height: 80vh;
+	margin: 0 auto;
+}
+
+.book-card {
+	background: rgb(71,151,97);
+	background: linear-gradient(121deg, rgba(71,151,97,1) 0%, rgba(255,255,255,1) 50%, rgba(161,110,131,1) 100%);
+	width: 100px;
+	border-radius: 1rem;
+	aspect-ratio: 1 / 1;
+}
