@@ -13,6 +13,10 @@
 	margin: 0;
 	border: 0;
 	color: var(--library-white);
+}
+
+body {
+	position: relative;
 	background-color: var(--library-black);
 }
 
@@ -47,6 +51,37 @@ header {
 .book-card {
 	background: rgb(148,233,176);
 	background: radial-gradient(circle, rgba(148,233,176,1) 0%, rgba(245,175,199,1) 100%);
-	border-radius: 1rem;
+	border-radius: 0.6rem;
 	aspect-ratio: 1 / 1.25;
+	border: 6px double var(--library-black);
+}
+
+.book-title, .book-author {
+	background: none;
+	color: var(--library-black);
+	margin: 3% 3%;
+}
+
+.book-card:hover {
+	box-shadow: 2px 2px 4px var(--library-green);
+}
+
+.add-book {
+	background: rgb(148,233,176);
+	background: linear-gradient(22deg, rgba(148,233,176,1) 0%, rgba(245,175,199,1) 100%);
+	position: absolute;
+	bottom: 2vh;
+	right: 10vw;
+	padding: .7rem 1.25rem;
+	border-radius: 0.6rem;
+	color: var(--library-black);
+	font-size: 2rem;
+	border: 6px double var(--library-black);
+}
+
+@media screen and (max-width: 1000px) {
+	.library-wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: min-content;
+	}
 }
