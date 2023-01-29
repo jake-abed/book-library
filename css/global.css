@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@400;800&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
 :root {
 	--library-black: #19181A;
 	--library-green: #479761;
@@ -5,7 +7,8 @@
 	--library-light-pink: #f5afc7;
 	--library-yellow: #CEBC81;
 	--library-white: ghostwhite;
-	font-size: 12px;
+	font-size: 16px;
+	font-family: 'Crimson Text', serif;
 }
 
 * {
@@ -23,7 +26,7 @@ body {
 h1 {
 	color: var(--library-green);
 	text-align: center;
-	font-size: 3rem;
+	font-size: calc(2rem + 2vw);
 }
 
 img {
@@ -54,7 +57,7 @@ header {
 }
 
 .library-wrapper {
-	width: min(1000px, 90vw);
+	width: min(700px, 85vw);
 	height: 80vh;
 	margin: 0 auto;
 	display: grid;
@@ -68,16 +71,52 @@ header {
 	border-radius: 0.6rem;
 	aspect-ratio: 1 / 1.25;
 	border: 6px double var(--library-black);
+	display: grid;
+	grid-template: 3fr 3fr 2fr 2fr / 1fr;
 }
 
-.book-title, .book-author {
+.book-title, .book-author, .page-count {
 	background: none;
 	color: var(--library-black);
 	margin: 3% 3%;
 }
 
+.page-count {
+	font-size: 16px;
+}
+
 .book-card:hover {
-	box-shadow: 2px 2px 4px var(--library-green);
+	box-shadow: 2px 2px 4px #47976145;
+	filter: saturate(1.4);
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.have-read {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	color: var(--library-black);
+	gap: 4px;
+	margin-left: 8px;
+}
+
+.delete-book {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	color: var(--library-black);
+	margin-right: 8px;
+	gap: 4px;
+}
+
+svg {
+	stroke: var(--library-black);
+	stroke-width: 2px;
+	flex: 1 0 auto;
 }
 
 .add-book {
@@ -86,6 +125,7 @@ header {
 	position: fixed;
 	bottom: 3vh;
 	right: 5vw;
+	font-weight: 600;
 	padding: 1rem 1.5rem;
 	border-radius: 0.6rem;
 	color: var(--library-black);
@@ -93,7 +133,12 @@ header {
 	border: 6px double var(--library-black);
 }
 
-@media screen and (max-width: 1000px) {
+.add-book:hover {
+	box-shadow: 0 0 10px 1px #A16E8345;
+	filter: saturate(1.5)
+}
+
+@media screen and (max-width: 700px) {
 	.library-wrapper {
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: min-content;
@@ -102,8 +147,14 @@ header {
 
 @media screen and (max-height: 500px) {
 	.library-wrapper {
-		width: 60vw;
+		width: 70vw;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: min-content;
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.h1 {
+		font-size: 0.5rem;
 	}
 }

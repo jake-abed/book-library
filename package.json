@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "eslint": "^8.32.0"
+  },
+  "dependencies": {
+    "feather-icons": "^4.29.0"
   }
 }

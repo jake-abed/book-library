@@ -1,7 +1,11 @@
 'use strict';
 
-//Global object to store any settings if necessary.
+const bookCard = document.createElement('div')
+const bookTitle = document.createElement('H2');
+const bookAuthor = document.createElement('H3');
+const pageCount = document.createElement('p');
 
+//Global object to store any settings if necessary.
 
 //Declare display object to store display elements
 
@@ -27,9 +31,16 @@ function Book(title, author, pages, haveRead = false) {
 
 const addBookToLibrary = (book) => bookLibrary.push(book);
 
+//Helper function to create book card
+
+const createBookCard = (book) => {
+	const libraryWrapper = display.libraryWrapper;
+	bookCard.setAttribute('class', 'book-card');
+	bookCard.setAttribute('data-title', book.title);
+}
+
 //Create function that loops over the library and adds all books to display.
 
 const populateLibraryWrapper = () => {
-	const libraryWrapper = display.libraryWrapper;
-	const bookCard = document.createElement('div',)
+	bookLibrary.forEach(book => createBookCard(book));
 }
