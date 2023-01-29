@@ -6,7 +6,9 @@
 
 const display = {
 	addBookButton: document.querySelector('.add-book'),
-	libraryWrapper: document.querySelector('.library-wrapper')
+	libraryWrapper: document.querySelector('.library-wrapper'),
+	addBookModal: document.querySelector('.add-book-modal'),
+	closeModal: document.querySelector('.close-modal')
 }
 
 //Create library to store books.
@@ -20,11 +22,13 @@ function Book(title, author, pages, haveRead = false) {
 	this.author = author;
 	this.pages = pages;
 	this.haveRead = haveRead;
+	this.index = bookLibrary.length;
 }
 
 //Create a test book
 
-const theThrobbit = new Book("The Throbbit Grizz", "Grobble Moddle", 6969, false);
+const theThrobbit = new Book('The Throbbit Grizz', 'Grobble Moddle', 6969, false);
+
 
 //Create a function to add book to the library.
 
@@ -33,6 +37,10 @@ const addBookToLibrary = (book) => bookLibrary.push(book);
 //Add the test book to the library now!
 
 addBookToLibrary(theThrobbit);
+
+const cheeseLord = new Book('Cheese Lord', 'Yo Mamma', 311, true);
+
+addBookToLibrary(cheeseLord);
 
 //Helper function to create book card
 
@@ -68,3 +76,11 @@ const createBookCard = (book) => {
 const populateLibraryWrapper = () => {
 	bookLibrary.forEach(book => createBookCard(book));
 }
+
+display.addBookButton.addEventListener('click', () => {
+	return display.addBookModal.classList.add('active');
+});
+
+display.closeModal.addEventListener('click', () => {
+	return display.addBookModal.classList.remove('active');
+});

@@ -29,6 +29,14 @@
 			</div>
 		</body>
 		<button type="button" class="add-book">+ Book</button>
+		<div class="add-book-modal">
+			<span class="close-modal">X</span>
+			<form class="add-book-form" onSubmit="processBookInput()">
+				<label for="form-title">Title <input id="form-title" name="title" type="text"></label>
+				<label for="form-author">Author <input id="form-author" name="author" type="text"></label>
+				<label for="form-pages">Pages <input id="form-pages" name="pages" type="number"></label>
+			</form>
+		</div>
 	</main>
 </body>
 </html>
