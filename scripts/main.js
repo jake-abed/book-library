@@ -77,6 +77,8 @@ const populateLibraryWrapper = () => {
 	bookLibrary.forEach(book => createBookCard(book));
 }
 
+populateLibraryWrapper();
+
 display.addBookButton.addEventListener('click', () => {
 	return display.addBookModal.classList.add('active');
 });
