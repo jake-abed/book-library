@@ -59,8 +59,9 @@ const createBookCard = (book) => {
 	const buttonWrapper = document.createElement('div');
 	const haveReadDiv = document.createElement('div');
 	const deleteBookDiv = document.createElement('div');
+	const deleteIcon = document.createElement('i');
 	bookCard.setAttribute('class', 'book-card');
-	bookCard.setAttribute('data-title', book.title);
+	bookCard.setAttribute('id', `book-${book.index}`);
 	bookTitle.setAttribute('class', 'book-title');
 	bookTitle.innerText = book.title;
 	bookAuthor.setAttribute('class', 'book-author');
@@ -69,9 +70,17 @@ const createBookCard = (book) => {
 	pageCount.innerText = `${book.pages} pages`;
 	buttonWrapper.setAttribute('class', 'button-wrapper');
 	haveReadDiv.setAttribute('class', 'have-read');
+	haveReadDiv.setAttribute('data-book-index', book.index);
+	haveReadDiv.setAttribute('data-read', book.haveRead);
 	deleteBookDiv.setAttribute('class', 'delete-book');
+	deleteBookDiv.setAttribute('data-book-index', book.index);
+	deleteIcon.classList.add('fa-solid', 'fa-trash-can', 'delete-icon');
 	haveReadDiv.append((book.haveRead) ? 'Have Read' : 'Not Read');
-	deleteBookDiv.append('DELETE');
+	deleteBookDiv.append(deleteIcon);
+	deleteBookDiv.addEventListener('click', () => {
+		document.querySelector(`#book-${book.index}`).remove();
+		bookLibrary[book.index] = '';
+	})
 	buttonWrapper.append(haveReadDiv), buttonWrapper.append(deleteBookDiv);
 	bookCard.append(bookTitle, bookAuthor, pageCount, buttonWrapper);
 	libraryWrapper.append(bookCard);
@@ -100,9 +109,10 @@ display.submitBook.addEventListener('click', (event) => {
 		display.bookTitle.value,
 		display.bookAuthor.value,
 		display.bookPages.value,
-		display.bookRead.value
+		display.bookRead.checked
 	));
 	createBookCard(bookLibrary[currentLibraryIndex]);
 	display.addBookModal.classList.remove('active');
 	display.addBookForm.reset();
+	event.preventDefault();
 });

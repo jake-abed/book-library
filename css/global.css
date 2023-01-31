@@ -54,6 +54,7 @@ header {
 	background-image: linear-gradient(69deg, var(--library-green), var(--library-light-pink), var(--library-pink), var(--library-green));
 	background-size: 300%;
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
@@ -110,8 +111,20 @@ header {
 	align-items: center;
 	justify-content: space-around;
 	color: var(--library-black);
-	margin-right: 8px;
+	margin-right: 1rem;
 	gap: 4px;
+}
+
+.delete-book:hover {
+	color: var(--library-pink);
+}
+
+.delete-icon {
+	color: var(--library-black);
+}
+
+.delete-icon:hover {
+	color: var(--library-pink);
 }
 
 svg {
@@ -139,7 +152,7 @@ svg {
 	z-index: 1;
 	border-radius: 0.25rem;
 	right: -500px;
-	bottom: calc(3vh + 100px);
+	bottom: calc(3dvh + 100px);
 	width: min(400px, 80vw);
 	height: min(500px, 75vh);
 	overflow: auto;
@@ -149,8 +162,8 @@ svg {
 
 .add-book-modal.active {
 	display: block;
-	right: calc(5vw + 5px);
-	bottom: calc(3vh + 100px);
+	right: calc(5dvw + 5px);
+	bottom: calc(3dvh + 100px);
 	animation: slide-up-expand 0.6s ease-in-out forwards;
 }
 
@@ -161,8 +174,8 @@ svg {
 		scale: 0%
 	}
 	to {
-		right: calc(5vw + 5px);
-		bottom: calc(3vh + 100px);
+		right: calc(5dvw + 5px);
+		bottom: calc(3dvh + 100px);
 		scale: 100%;
 	}
 }
