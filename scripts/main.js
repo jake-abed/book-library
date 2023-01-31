@@ -8,7 +8,13 @@ const display = {
 	addBookButton: document.querySelector('.add-book'),
 	libraryWrapper: document.querySelector('.library-wrapper'),
 	addBookModal: document.querySelector('.add-book-modal'),
-	closeModal: document.querySelector('.close-modal')
+	addBookForm: document.querySelector('.add-book-form'),
+	closeModal: document.querySelector('.close-modal'),
+	submitBook: document.querySelector('#book-submit'),
+	bookTitle: document.querySelector('#form-title'),
+	bookAuthor: document.querySelector('#form-author'),
+	bookPages: document.querySelector('#form-pages'),
+	bookRead: document.querySelector('#form-read')
 }
 
 //Create library to store books.
@@ -85,4 +91,18 @@ display.addBookButton.addEventListener('click', () => {
 
 display.closeModal.addEventListener('click', () => {
 	return display.addBookModal.classList.remove('active');
+});
+
+display.submitBook.addEventListener('click', (event) => {
+	if (!display.bookTitle.value || !display.bookAuthor.value || !display.bookPages.value) return;
+	const currentLibraryIndex = bookLibrary.length;
+	addBookToLibrary(new Book(
+		display.bookTitle.value,
+		display.bookAuthor.value,
+		display.bookPages.value,
+		display.bookRead.value
+	));
+	createBookCard(bookLibrary[currentLibraryIndex]);
+	display.addBookModal.classList.remove('active');
+	display.addBookForm.reset();
 });

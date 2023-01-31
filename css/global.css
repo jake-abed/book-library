@@ -135,10 +135,10 @@ svg {
 }
 
 .add-book-modal {
-	display: none;
 	position: fixed;
 	z-index: 1;
-	right: calc(5vw + 5px);
+	border-radius: 0.25rem;
+	right: -500px;
 	bottom: calc(3vh + 100px);
 	width: min(400px, 80vw);
 	height: min(500px, 75vh);
@@ -149,6 +149,31 @@ svg {
 
 .add-book-modal.active {
 	display: block;
+	right: calc(5vw + 5px);
+	bottom: calc(3vh + 100px);
+	animation: slide-up-expand 0.6s ease-in-out forwards;
+}
+
+@keyframes slide-up-expand {
+	from {
+		right: -100px;
+		bottom: -130px;
+		scale: 0%
+	}
+	to {
+		right: calc(5vw + 5px);
+		bottom: calc(3vh + 100px);
+		scale: 100%;
+	}
+}
+
+@keyframes slide-out-left-to-right {
+	from {
+		right: calc(5vw + 5px);
+	}
+	to {
+		right: -400px;
+	}
 }
 
 .form-wrapper {
@@ -169,21 +194,50 @@ svg {
 
 .add-book-form {
 	display: grid;
-	grid-template: 3fr 3fr 3fr 3fr 2fr / 1fr;
+	grid-template: 4fr 4fr 4fr 3fr 4fr / 1fr;
 }
 
 .add-book-form label {
-	display: block;
 	font-size: 1.5rem;
+	display: inline;
 }
 
 .add-book-form label input {
 	display: block;
 	height: 2rem;
-	width: 80%;
+	width: 100%;
 	padding-left: 0.5rem;
 	color: var(--library-black);
 	border-radius: 0.25rem;
+	
+}
+
+.checkbox-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.add-book-form input[type="checkbox"] {
+	display: inline;
+	width: 1.75rem;
+	height: 1.75rem;
+	flex: 1 1 auto;
+}
+
+.add-book-form button {
+	border-radius: 0.25rem;
+	width: 103%;
+	border: 4px double var(--library-black);
+	color: var(--library-black);
+	font-size: 1.75rem;
+	font-weight: 600;
+	background: linear-gradient(22deg, rgba(245,175,199,1) 0%, rgba(148,233,176,1) 100%);
+}
+
+.add-book-form button:hover {
+	filter: saturate(1.5);
+	box-shadow: 0 0 10px 1px #A16E8345;
 }
 
 .add-book:hover {
