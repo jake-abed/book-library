@@ -31,6 +31,13 @@ function Book(title, author, pages, haveRead = false) {
 	this.index = bookLibrary.length;
 }
 
+//Prototype function for book to update read status
+
+Book.prototype.changeRead = function() {
+	this.haveRead = !this.haveRead;
+}
+
+
 //Create a test book
 
 const theThrobbit = new Book('The Throbbit Grizz', 'Grobble Moddle', 6969, false);
@@ -70,8 +77,12 @@ const createBookCard = (book) => {
 	pageCount.innerText = `${book.pages} pages`;
 	buttonWrapper.setAttribute('class', 'button-wrapper');
 	haveReadDiv.setAttribute('class', 'have-read');
-	haveReadDiv.setAttribute('data-book-index', book.index);
+	haveReadDiv.setAttribute('id', `have-read-${book.index}`);
 	haveReadDiv.setAttribute('data-read', book.haveRead);
+	haveReadDiv.addEventListener('click', () => {
+		book.changeRead();
+		document.querySelector(`#have-read-${book.index}`).innerText = (book.haveRead) ? 'Have Read' : 'Not Read';
+	});
 	deleteBookDiv.setAttribute('class', 'delete-book');
 	deleteBookDiv.setAttribute('data-book-index', book.index);
 	deleteIcon.classList.add('fa-solid', 'fa-trash-can', 'delete-icon');
