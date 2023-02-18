@@ -1,7 +1,5 @@
 'use strict';
 
-//Global object to store any settings if necessary.
-
 //Declare display object to store display elements
 
 const display = {
@@ -21,38 +19,29 @@ const display = {
 
 const bookLibrary = [];
 
-//Create book constructor.
+//Create a Book class with constructor & changeRead method.
 
-function Book(title, author, pages, haveRead = false) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.haveRead = haveRead;
-	this.index = bookLibrary.length;
+class Book {
+	constructor(title, author, pages, haveRead = false) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.haveRead = haveRead;
+		this.index = bookLibrary.length;
+	}
+	
+	changeRead() {
+		this.haveRead = !this.haveRead;
+	}
 }
-
-//Prototype function for book to update read status
-
-Book.prototype.changeRead = function() {
-	this.haveRead = !this.haveRead;
-}
-
-
-//Create a test book
-
-const theThrobbit = new Book('The Throbbit Grizz', 'Grobble Moddle', 6969, false);
-
 
 //Create a function to add book to the library.
 
 const addBookToLibrary = (book) => bookLibrary.push(book);
 
-//Add the test book to the library now!
-
+const theThrobbit = new Book('The Throbbit Grizz', 'Grobble Moddle', 6969, false);
 addBookToLibrary(theThrobbit);
-
 const cheeseLord = new Book('Cheese Lord', 'Yo Mamma', 311, true);
-
 addBookToLibrary(cheeseLord);
 
 //Helper function to create book card
