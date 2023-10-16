@@ -39,9 +39,9 @@ class Book {
 
 const addBookToLibrary = (book) => bookLibrary.push(book);
 
-const theThrobbit = new Book('The Throbbit Grizz', 'Grobble Moddle', 6969, false);
+const theThrobbit = new Book('The Gobbit', 'G.R.R Nolkien', 600, false);
 addBookToLibrary(theThrobbit);
-const cheeseLord = new Book('Cheese Lord', 'Yo Mamma', 311, true);
+const cheeseLord = new Book('A Book About Cheese', 'Not A. Human', 311, true);
 addBookToLibrary(cheeseLord);
 
 //Helper function to create book card
